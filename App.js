@@ -24,6 +24,22 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import 'node-libs-react-native/globals';
+import '@rn-matrix/core/shim.js';
+
+import {polyfillGlobal} from 'react-native/Libraries/Utilities/PolyfillFunctions';
+polyfillGlobal('URL', () => require('whatwg-url').URL);
+
+import { matrix } from '@rn-matrix/core';
+
+const accessToken = '';
+const deviceId = '1234';
+matrix.createClient('https://matrix-client.matrix.org', accessToken, '', deviceId);
+matrix.start();
+
+console.log(Object.keys(matrix.getRooms$().getValue()[0]))
+console.log(matrix.getRooms$().getValue()[0]['name$'])
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -40,31 +56,11 @@ const App: () => React$Node = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>Rooms</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+                
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
