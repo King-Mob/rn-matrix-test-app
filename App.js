@@ -9,12 +9,16 @@
 import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
+  Text
 } from 'react-native';
+
+import 'node-libs-react-native/globals';
+import '@rn-matrix/core/shim.js';
 
 import {polyfillGlobal} from 'react-native/Libraries/Utilities/PolyfillFunctions';
 polyfillGlobal('URL', () => require('whatwg-url').URL);
 
-import { matrix } from '@rn-matrix/core';
+import {rnm, useMatrix} from '@rn-matrix/core';
 import {RoomList, MessageList} from '@rn-matrix/ui';
 
 import UserInfo from './UserInfo';
@@ -23,17 +27,24 @@ const deviceId = '1234';
 
 const App = () => {
   const [room, setRoom] = useState(null);
+  const { isReady, isSynced } = useMatrix();
 
   const handleRoomPress = (r) => {
     setRoom(r);
   };
 
   useEffect(() => {
-    matrix.createClient(UserInfo.baseUrl, UserInfo.accessToken, UserInfo.userId, deviceId);
-    matrix.start(true);
+    rnm.createClient(UserInfo.baseUrl, UserInfo.accessToken, UserInfo.userId, deviceId);
+    rnm.start(true);
   }, []);
 
-  if (room) {
+  if (!isReady || !isSynced) {
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  } else if (room) {
     return (
       <SafeAreaView style={{flex: 1}}>
         <MessageList room={room} enableComposer />
