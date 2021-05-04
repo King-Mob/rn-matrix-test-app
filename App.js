@@ -18,7 +18,7 @@ import '@rn-matrix/core/shim.js';
 import {polyfillGlobal} from 'react-native/Libraries/Utilities/PolyfillFunctions';
 polyfillGlobal('URL', () => require('whatwg-url').URL);
 
-import {rnm, useMatrix} from '@rn-matrix/core';
+import rnm, {useMatrix} from '@rn-matrix/core';
 import {RoomList, MessageList} from '@rn-matrix/ui';
 
 import UserInfo from './UserInfo';
