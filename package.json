@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
-    "@rn-matrix/core": "^0.1.0-alpha.0",
-    "@rn-matrix/ui": "^0.1.0-alpha.0",
+    "@rn-matrix/core": "^0.1.0-alpha.1",
+    "@rn-matrix/ui": "^0.1.0-alpha.1",
     "node-libs-react-native": "^1.2.1",
     "observable-hooks": "^3.1.2",
     "react": "16.13.1",

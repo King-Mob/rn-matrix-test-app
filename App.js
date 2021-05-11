@@ -38,22 +38,22 @@ const App = () => {
     rnm.start(true);
   }, []);
 
-  if (!isReady || !isSynced) {
-    return (
-      <SafeAreaView style={{flex: 1}}>
-        <Text>Loading...</Text>
-      </SafeAreaView>
-    );
-  } else if (room) {
+  if (room) {
     return (
       <SafeAreaView style={{flex: 1}}>
         <MessageList room={room} enableComposer />
       </SafeAreaView>
     );
+  } else if (isReady && isSynced) {
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <RoomList isFocused={true} onRowPress={handleRoomPress} />
+      </SafeAreaView>
+    );
   } else {
     return (
       <SafeAreaView style={{flex: 1}}>
-        <RoomList onRowPress={handleRoomPress} />
+        <Text>Loading...</Text>
       </SafeAreaView>
     );
   }

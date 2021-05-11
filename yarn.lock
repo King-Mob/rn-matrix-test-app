@@ -1115,10 +1115,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
-"@rn-matrix/core@^0.1.0-alpha.0":
-  version "0.1.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@rn-matrix/core/-/core-0.1.0-alpha.0.tgz#91324393109c2b2ffffb2f9fdca20ef4d0b83446"
-  integrity sha512-eX6qBiq5GcXEwUMM2Bj+WwA8W1SxW237azQn/xqCnIXT9qF7brm9MXfn51S0v3063e9TShLcRK7XCr0uZ3w3vQ==
+"@rn-matrix/core@^0.1.0-alpha.1":
+  version "0.1.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@rn-matrix/core/-/core-0.1.0-alpha.1.tgz#54eae49bf862e9784d74242b2b2ea57ca5aa6288"
+  integrity sha512-kGn0xN3Ud3Nd+g+d3k7Vg7h8KceVekp5h2MicrWW6hieU2UITEkH1mIDL0cRmX9/IKOTPvyY//nqAJIJyiMOzQ==
   dependencies:
     "@react-native-community/async-storage" "^1.12.0"
     "@types/react" "^17.0.1"
@@ -1141,10 +1141,10 @@
     whatwg-url "^8.1.0"
     xmlhttp-request "^0.4.1"
 
-"@rn-matrix/ui@^0.1.0-alpha.0":
-  version "0.1.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@rn-matrix/ui/-/ui-0.1.0-alpha.0.tgz#d35e897614766ef2631d22e07158c5303107fe80"
-  integrity sha512-qlzvcWu4EUR5BzR7nEG8h09PuiTJBnMCejHtlQ+9O84nfV77GnkJfM8XN9CTyoKqnlPbmcAmKNkdvMAJiTWgmw==
+"@rn-matrix/ui@^0.1.0-alpha.1":
+  version "0.1.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@rn-matrix/ui/-/ui-0.1.0-alpha.1.tgz#7dc2867979b2ea1e9f776df704fd7bd00521b58a"
+  integrity sha512-g8zc6uqdhHNzOTNVJ98Nsw+ifg+sBGrv9dvZFywVDlurclMPAerJO1rHtq++c0iulSW7LmTbpOPHnlXW+yNY9g==
   dependencies:
     "@react-native-community/async-storage" "^1.12.0"
     color "^3.1.2"
