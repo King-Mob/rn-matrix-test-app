@@ -9,7 +9,8 @@
 import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 
 import 'node-libs-react-native/globals';
@@ -20,6 +21,7 @@ polyfillGlobal('URL', () => require('whatwg-url').URL);
 
 import rnm, {useMatrix} from '@rn-matrix/core';
 import {RoomList, MessageList} from '@rn-matrix/ui';
+import NewMessageBox from './src/NewMessageBox';
 
 import UserInfo from './UserInfo';
 
@@ -29,19 +31,47 @@ const App = () => {
   const [room, setRoom] = useState(null);
   const { isReady, isSynced } = useMatrix();
 
+  const [error, setError] = useState("");
+
   const handleRoomPress = (r) => {
     setRoom(r);
   };
 
-  useEffect(() => {
+  useEffect(async () => {
+    /*
     rnm.createClient(UserInfo.baseUrl, UserInfo.accessToken, UserInfo.userId, deviceId);
     rnm.start(true);
+
+    */
+    const result = await rnm.loginWithPassword(
+      UserInfo.username,
+      UserInfo.password,
+      UserInfo.baseUrl,
+      true, // enable crypto? default false
+    );
+    console.log(result);
+    if (result.error) {
+     // setLoading(false);
+      console.log('Error logging in: ', result);
+      setError(result.message);
+    }
   }, []);
 
   if (room) {
     return (
       <SafeAreaView style={{flex: 1}}>
+        <TouchableOpacity 
+          onPress={()=>setRoom(null)} 
+          styles={{
+            margin: 5,
+            borderWidth: 1,
+            justifyContent: 'center',
+            alignItems: 'center',}}
+          >
+            <Text>Back</Text>
+        </TouchableOpacity>
         <MessageList room={room} enableComposer />
+        <NewMessageBox rnm={rnm} room={room}/>
       </SafeAreaView>
     );
   } else if (isReady && isSynced) {

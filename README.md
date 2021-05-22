@@ -23,7 +23,7 @@ Just experimenting with [Matrix](https://matrix.org/) on [React Native](https://
     ```
     - create UserInfo.js in the root of the repo with the following structure
     ```js
-    export default UserInfo = { baseUrl: "https://example.homeserver.com", accessToken: "QRSD12312SFGS568JHZFD9", userId: "@myusername:example.homeserver.com" }
+    export default UserInfo = { baseUrl: "https://example.homeserver.com", accessToken: "QRSD12312SFGS568JHZFD9", userId: "@myusername:example.homeserver.com", username:"whatever", password: "********" }
     ```
 5. In one terminal: `npx react-native start`
 6. In another terminal: `npx react-native run-android` or `npx react-native run-ios`
